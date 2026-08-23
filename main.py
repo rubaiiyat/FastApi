@@ -91,3 +91,7 @@ async def html_response():
 @app.get('/json_response')
 async def json_response():
     return JSONResponse({'message':'successful','status':status.HTTP_200_OK})
+
+@app.get('/http_exception')
+async def json_response():
+    return HTTPException(status_code=404)
