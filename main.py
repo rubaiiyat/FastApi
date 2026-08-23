@@ -1,6 +1,6 @@
 from fastapi.responses import PlainTextResponse,HTMLResponse,JSONResponse
 from fastapi.exceptions import HTTPException
-from fastapi import FastAPI,status
+from fastapi import FastAPI,status,Response
 app=FastAPI()
 
 users=[
@@ -95,3 +95,13 @@ async def json_response():
 @app.get('/http_exception')
 async def json_response():
     return HTTPException(status_code=404)
+
+@app.get('/custom_header')
+async def custom_header():
+    return Response(
+        content='Welcome to dashboard',
+        headers={
+            'is_staff':'True',
+            'role':'admin',
+        }
+    )
