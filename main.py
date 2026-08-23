@@ -1,7 +1,6 @@
 from fastapi.responses import PlainTextResponse,HTMLResponse,JSONResponse
 from fastapi.exceptions import HTTPException
-from fastapi import FastAPI,Response
-
+from fastapi import FastAPI,status
 app=FastAPI()
 
 users=[
@@ -88,3 +87,7 @@ async def plain_text_response(number:int):
 @app.get('/html_response')
 async def html_response():
     return HTMLResponse('<h1>Hello Abir</h1>')
+
+@app.get('/json_response')
+async def json_response():
+    return JSONResponse({'message':'successful','status':status.HTTP_200_OK})
