@@ -112,3 +112,4 @@ async def set_cookie(response:Response):
         key='username',
         value='Abir'
     )
+    return {"message": "Cookie set successfully"}
