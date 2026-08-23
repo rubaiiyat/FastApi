@@ -66,3 +66,15 @@ numbers=[10,20,30,40]
 @app.get('/list_response')
 async def list_response():
     return numbers
+
+@app.post('/boolean_response')
+async def boolean_response(number:int):
+    if number>=18:
+        return True
+    else: return False
+
+@app.get('/nested_json_response')
+async def nested_json_response():
+    return users
+    
+    
