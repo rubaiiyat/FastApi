@@ -105,3 +105,10 @@ async def custom_header():
             'role':'admin',
         }
     )
+
+@app.get('/set_cookie')
+async def set_cookie(response:Response):
+    response.set_cookie(
+        key='username',
+        value='Abir'
+    )
