@@ -1,4 +1,4 @@
-from django.db.models.signals import post_delete
+from fastapi.responses import PlainTextResponse
 from fastapi import FastAPI,Response
 
 app=FastAPI()
@@ -76,5 +76,11 @@ async def boolean_response(number:int):
 @app.get('/nested_json_response')
 async def nested_json_response():
     return users
-    
+
+
+@app.post('/plain_text_response')
+async def plain_text_response(number:int):
+    if number>=18:
+        return PlainTextResponse('You are eligible')
+    else: return PlainTextResponse('You are not eligible')
     
