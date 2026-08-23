@@ -1,3 +1,4 @@
+from django.db.models.signals import post_delete
 from fastapi import FastAPI,Response
 
 app=FastAPI()
@@ -50,7 +51,11 @@ async def user(name:str):
 async def get_users():
     return users """
 
-@app.get('/submit_name')
+@app.post('/string_response')
 async def submit_name(name:str):
     return ({'message':f"Your name has been submitted {name}"})
-    
+
+
+@app.post('/number_response')
+async def number_response(number:int):
+    return number
