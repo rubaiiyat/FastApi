@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Response
 
 app=FastAPI()
 
@@ -49,3 +49,8 @@ async def user(name:str):
 """ @app.get('/users')
 async def get_users():
     return users """
+
+@app.get('/submit_name')
+async def submit_name(name:str):
+    return ({'message':f"Your name has been submitted {name}"})
+    
