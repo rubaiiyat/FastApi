@@ -59,3 +59,10 @@ async def submit_name(name:str):
 @app.post('/number_response')
 async def number_response(number:int):
     return number
+
+
+numbers=[10,20,30,40]
+
+@app.get('/list_response')
+async def list_response():
+    return numbers
