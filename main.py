@@ -1,4 +1,5 @@
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse,HTMLResponse,JSONResponse
+from fastapi.exceptions import HTTPException
 from fastapi import FastAPI,Response
 
 app=FastAPI()
@@ -83,4 +84,7 @@ async def plain_text_response(number:int):
     if number>=18:
         return PlainTextResponse('You are eligible')
     else: return PlainTextResponse('You are not eligible')
-    
+
+@app.get('/html_response')
+async def html_response():
+    return HTMLResponse('<h1>Hello Abir</h1>')
